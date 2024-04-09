@@ -16,6 +16,7 @@ const cors = require('cors');
 require('dotenv').config();
 const app = express();
 const adjusterroutes = require('./app/router/Adjuster/resolver')
+const userroutes= require('./app/router/User/resolver')
 mongoinit();
 
 //middlewares
@@ -32,6 +33,7 @@ app.get('/',(req,res)=>{
 })
 app.use('/api/machine',machineroutes);
 app.use('/api/adjuster',adjusterroutes);
+app.use('/api/user',userroutes);
 
 const port = process.env.PORT || 8000;
 app.listen(port,()=>{
