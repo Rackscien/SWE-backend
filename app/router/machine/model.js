@@ -7,16 +7,20 @@ const machineSchema = new Schema({
         required: true,
         unique: true
     },  
+
     name: {
         type: String, 
         required: true
     },
+
     assignedToAdjuster: {
         type: String
     },
-    status: {
+
+    status: { 
         type: String
     },
+
 });
 
 module.exports = mongoose.model('Machine' , machineSchema);

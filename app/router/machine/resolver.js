@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
         res.json(error);
     }
 })
-router.put('/:appID', async (req,res)=>{
+router.patch('/:appID',async (req,res)=>{
     const machine = req.body;
     const {appID} = req.params;
     try{
