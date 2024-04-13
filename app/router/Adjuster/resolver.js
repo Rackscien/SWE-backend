@@ -34,7 +34,7 @@ router.patch('/:appID', async (req,res)=>{
     const adjuster = req.body;
     const {appID} = req.params;
     try{
-        const updateAdjuster = await datasources.update({appID,adjuster});
+        const updateAdjuster = await datasources.update(appID,adjuster);
         console.log(updateAdjuster);
         res.json(updateAdjuster);
     } catch(error) {

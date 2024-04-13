@@ -34,7 +34,7 @@ router.patch('/:appID',async (req,res)=>{
     const machine = req.body;
     const {appID} = req.params;
     try{
-        const updateMachine = await datasources.update({appID,machine});
+        const updateMachine = await datasources.update(appID,machine);
         console.log(updateMachine);
         res.json(updateMachine);
     } catch(error) {
@@ -46,7 +46,7 @@ router.delete('/:appID',async (req,res)=>{
     console.log(appID);
     try{
         const deleteMachine = await datasources._delete(appID);
-        // console.log(deleteMachine);
+        console.log(deleteMachine);
         res.json(deleteMachine);
     } catch(error) {
         res.json(error);

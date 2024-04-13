@@ -1,13 +1,3 @@
-
-// const complaintRouter = require('./app/router/complaints/resolver')
-// const materialRouter = require('./app/router/material/resolver')
-// const labourRouter = require('./app/router/labours/resolver')
-
-// app.use('/complaint', complaintRouter);
-// app.use('/resource/material', materialRouter);
-// app.use('/resource/labour', labourRouter);
-
-
 const express = require("express");
 const mongoinit = require('./app/config/mongoose');
 const bodyParser = require('body-parser');

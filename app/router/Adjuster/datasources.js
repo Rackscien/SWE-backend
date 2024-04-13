@@ -5,7 +5,7 @@ const find1 = async() => {
     return adjuster;
 }
 const find = async(appID) => {
-    const adjuster = await model.find({id:appID});
+    const adjuster = await model.find({_id:appID});
     return adjuster;
 }
 
@@ -22,13 +22,13 @@ const create = async (adjuster) => {
     return newadjuster;
 }
 
-const update = async ({id,adjuster}) => {
-    const res = await model.findOneAndUpdate(id,adjuster);
+const update = async (id,adjuster) => {
+    const res = await model.findByIdAndUpdate(id,adjuster);
     return res;
 }
 const _delete = async(id) => {
     try {
-        const deletedItem = await model.findOneAndDelete(id);
+        const deletedItem = await model.findByIdAndDelete(id);
         console.log('Deleted item:', deletedItem);
     } catch (error) {
         console.error('Error deleting item:', error);

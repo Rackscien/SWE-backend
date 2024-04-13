@@ -5,7 +5,7 @@ const find1 = async() => {
     return user;
 }
 const find = async(appID) => {
-    const user = await model.find({id:appID});
+    const user = await model.find({_id:appID});
     return user;
 }
 
@@ -21,13 +21,13 @@ const create = async (user) => {
     return newuser;
 }
 
-const update = async ({id,user}) => {
-    const res = await model.findOneAndUpdate(id,user);
+const update = async (id,user) => {
+    const res = await model.findByIdAndUpdate(id,user);
     return res;
 }
 const _delete = async(id) => {
     try {
-        const deletedItem = await model.findOneAndDelete(id);
+        const deletedItem = await model.findByIdAndDelete(id);
         console.log('Deleted item:', deletedItem);
     } catch (error) {
         console.error('Error deleting item:', error);

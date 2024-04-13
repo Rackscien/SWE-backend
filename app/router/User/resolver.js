@@ -30,11 +30,11 @@ router.post('/', async (req, res) => {
         res.json(error);
     }
 })
-router.put('/:appID', async (req,res)=>{
+router.patch('/:appID', async (req,res)=>{
     const user = req.body;
     const {appID} = req.params;
     try{
-        const updateuser = await datasources.update({appID,user});
+        const updateuser = await datasources.update(appID,user);
         console.log(updateuser);
         res.json(updateuser);
     } catch(error) {
@@ -46,7 +46,7 @@ router.delete('/:appID',async (req,res)=>{
     console.log(appID);
     try{
         const deleteuser = await datasources._delete(appID);
-        // console.log(deleteuser);
+        console.log(deleteuser);
         res.json(deleteuser);
     } catch(error) {
         res.json(error);

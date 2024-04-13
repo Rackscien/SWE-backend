@@ -21,13 +21,13 @@ const create = async (machine) => {
     return newmachine;
 }
 
-const update = async ({id,machine}) => {
-    const res = await model.findOneAndUpdate(id,machine);
+const update = async (id,machine) => {
+    const res = await model.findByIdAndUpdate(id,machine);
     return res;
 }
 const _delete = async(id) => {
     try {
-        const deletedItem = await model.findOneAndDelete(id);
+        const deletedItem = await model.findByIdAndDelete(id);
         console.log('Deleted item:', deletedItem);
     } catch (error) {
         console.error('Error deleting item:', error);
